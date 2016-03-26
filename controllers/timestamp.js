@@ -25,11 +25,8 @@ function returntimestamp(request,response){
     }
 }
 
-function indexs(request,response) {
-    return response.json("asdadasd");
-}
 
-router.get('/:query',returntimestamp);
+router.get('/api/timestamp/:query',returntimestamp);
 
 
 module.exports = router;
