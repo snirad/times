@@ -12,7 +12,7 @@ function returntimestamp(request,response){
     var timestamp = request.params.query;
     if(parseInt(timestamp)) {
         timestamp = parseInt(timestamp);
-    }
+    }   
 
     if((new Date(timestamp)).getTime() > 0) {
             return isNaN(timestamp) ?
