@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    <h2> User stories:</h2>
+
+    <ul>
+    <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+    <li> When I visit that shortened URL, it will redirect me to my original link..</li>
+    </ul>
+
+    <h2> Example Creation usage:</h2>
+
+    <p1 style="background-color:LightBlue;">https://shorturl-ms.herokuapp.com/api/urlshortner/https://www.google.com</p1>
+    <br>
+    <p1 style="background-color:LightBlue;">https://shorturl-ms.herokuapp.com//api/urlshortner/http://www.gmail.com</p1>
+
+    <h2> Example Creation output:</h2>
+    <p1 style="background-color:LightBlue;">{ "original_url" : "https://www.google.com", "short_url": "https://shorturl-ms.herokuapp.com/api/urlshortner/" }</p1>
+
+    <h2> Will redirect to:</h2>
+    <p1 style="background-color:LightBlue;"> "https://www.google.com"</p1>
