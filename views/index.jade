@@ -1,22 +1,12 @@
 extends layout
 
 block content
+  <body style="background-color:lightblue;">
   h1= title
-  <h2> User stories:</h2>
+  <h2> The following API's are available, Choose one to get more info.</h2>
 
   <ul>
-  <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix
-  timestamp  timestamp or a natural language date (example: January 1, 2016) </li>
-  <li> If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
-  <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+  <li> https://#{hostname}/api/timestamp/</li>
+  <li> https://#{hostname}/api/whoami/</li>
+  <li> https://#{hostname}/api/urlshortner/</li>
   </ul>
-
-  <h2> Example usage:</h2>
-
-  <p1 style="background-color:LightBlue;">https://#{hostname}/December%2015,%202015</p1>
-  <br>
-  <p1 style="background-color:LightBlue;">https://#{hostname}/1450137600</p1>
-
-  <h2> Example output:</h2>
-
-  <p1>'{ "unix": 1450137600, "natural": "December 15, 2015" }'</p1>

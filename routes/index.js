@@ -3,9 +3,16 @@ const express = require('express');
 const router = express.Router();
 
 
+router.get('/', function(req, res, next){
+  let hostname= req.headers.host;
+  res.render('index', { title: 'FreeCodeCamp API Basejump:',hostname:hostname})
+});
+
+
+
 router.get('/api/timestamp/', function(req, res, next){
     let hostname= req.headers.host;
-  res.render('index', { title: 'FreeCodeCamp API Basejump: Timestamp Microservice' ,hostname:hostname})
+  res.render('timestamp', { title: 'FreeCodeCamp API Basejump: Timestamp Microservice' ,hostname:hostname})
 });
 
 
