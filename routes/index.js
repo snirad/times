@@ -21,4 +21,9 @@ router.get('/api/urlShortner/', function(req, res, next) {
   res.render('urlShortner', { title: 'FreeCodeCamp API Basejump: URL Shortner Microservice',hostname:hostname});
 });
 
+router.get('/api/imagesearch', function(req, res, next) {
+  let hostname= req.headers.host;
+  res.render('imagesearch', { title: 'FreeCodeCamp API Basejump: Image Search',hostname:hostname});
+});
+
 module.exports = router;
