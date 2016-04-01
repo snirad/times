@@ -21,7 +21,7 @@ function urlShortner(request,response){
        Postgre.queryPostgre(`insert into shorturl.url VALUES(${num},'${url}')`).then(()=>{
            return response.json({
                "original_url":url,
-               "short_url": 'http://'+shorturl
+               "short_url": 'https://'+shorturl
            }).catch((err)=>{
                console.log(err);
            })
@@ -37,13 +37,7 @@ function redirectURL(number,response){
     })
 }
 
-
-
-
-
 router.get('/api/urlShortner/:query*',urlShortner);
-
-
 
 module.exports = router;
 
