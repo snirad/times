@@ -3,7 +3,7 @@
 const  pgp = require('pg-promise')({});
 const config = require('../config');
 const  pgUrl =  config.pg.postgreURL;
-const db = new pgp(pgUrl);
+const db = pgp(pgUrl);
 pgp.pg.defaults.ssl=true;
 
 const queryPostgre = function (queryString) {
