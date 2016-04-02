@@ -16,11 +16,12 @@
     "lodash": "^4.7.0",
     "moment": "latest",
     "morgan": "~1.6.1",
+    "multer": "^1.1.0",
     "pg": "^4.5.1",
     "pg-promise": "latest",
     "request": "latest",
+    "request-promise": "latest",
     "serve-favicon": "~2.3.0",
-    "validator": "^5.1.0",
-    "request-promise": "latest"
+    "validator": "^5.1.0"
   }
 }

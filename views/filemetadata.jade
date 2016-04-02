@@ -1,0 +1,8 @@
+extends layout
+block content
+    h1= title
+        body
+            <h3> Submit a file to get a response with the file size</h1>
+            form(method="post",enctype="multipart/form-data",action="/api/filemetadata")
+                input(type="file",name="upl")
+                input(type="Submit")
