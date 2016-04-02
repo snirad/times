@@ -29,7 +29,7 @@ router.get('/api/filemetadata', function(req, res, next) {
   res.render('filemetadata', { title: 'FreeCodeCamp API Basejump: FileMetadata'});
 });
 
-router.post('/api/filemetadata', multer({ storage: multer.memoryStorage(),limits : {fileSize: 5120 }}).single('upl'), (req,res) =>{
+router.post('/api/filemetadata', multer({ storage: multer.memoryStorage(),limits : {fileSize: 5120000 }}).single('upl'), (req,res) =>{
      res.json(`${req.file.size} bytes`);
     res.status(204).end();
 });
