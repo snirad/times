@@ -25,6 +25,11 @@ function urlShortner(request, response) {
     }
 }
 
+/***
+ * 
+ * @param number: an Integer, for finding the correct target url.
+ * @param response: response with the new destination.
+ */
 function redirectURL(number, response) {
     Postgre.queryPostgre(`select url from shorturl.url where id = ${number}`)
         .then((data)=> response.redirect(data[0].url))
