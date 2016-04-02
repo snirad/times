@@ -8,7 +8,6 @@ const router = express.Router();
 
 
 function urlShortner(request, response) {
-    console.log(request);
     let prefix = request.params.query;
     if (parseInt(prefix)) {
         redirectURL(parseInt(prefix), response)
