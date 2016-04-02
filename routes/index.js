@@ -24,10 +24,12 @@ router.get('/api/imagesearch', function(req, res, next) {
   let hostname= req.headers.host;
   res.render('imagesearch', { title: 'FreeCodeCamp API Basejump: Image Search',hostname:hostname});
 });
+
 router.get('/api/filemetadata', function(req, res, next) {
   res.render('filemetadata', { title: 'FreeCodeCamp API Basejump: FileMetadata'});
 });
-router.post('/api/filemetadata', multer({ storage: multer.memoryStorage(),limits : {fileSize: 5000 }}).single('upl'), function(req,res){
+
+router.post('/api/filemetadata', multer({ storage: multer.memoryStorage(),limits : {fileSize: 5120 }}).single('upl'), (req,res) =>{
      res.json(`${req.file.size} bytes`);
     res.status(204).end();
 });
