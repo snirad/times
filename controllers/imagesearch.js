@@ -31,10 +31,6 @@ function getLatest(request,response){
         .catch(err => err);
 }
 
-
-
-
-
 router.get('/api/imagesearch/:query', imageSearch);
 router.get('/api/latest/imagesearch',getLatest);
 
