@@ -19,7 +19,6 @@ const queryPostgre = function (queryString) {
 };
 
 
-
 module.exports = {
     queryPostgre: queryPostgre
 };

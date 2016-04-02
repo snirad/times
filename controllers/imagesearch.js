@@ -21,12 +21,12 @@ function imageSearch(request,response){
 }
 
 /***
- *
+ * 
  * @param request: no being used.
- * @param response: response with top 10
+ * @param response: response with top 10 
  */
 function getLatest(request,response){
-    Postgre.queryPostgre(`select * from imagesearch.archive order by desc limit 10;`)
+    Postgre.queryPostgre(`select * from imagesearch.archive order by my_timestamp desc limit 10;`)
         .then((data)=> response.json(data))
         .catch(err => err);
 }
