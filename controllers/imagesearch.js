@@ -15,7 +15,6 @@ function imageSearch(request,response){
         }
         return Promise.all(arr);
     }).then((result)=>{
-        console.log(result);
         return response.json(result);
     }).catch(err => err);
 }

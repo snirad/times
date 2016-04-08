@@ -1,6 +1,8 @@
 'use strict';
-const _ = require('lodash');
-const rp = require('request-promise');
+const _ = require('lodash')
+    , Promise = require('bluebird')
+    , request = Promise.promisifyAll(require('request'),{multiArgs: true})
+    , config = require('../config');
 
 /**
  * 
@@ -9,18 +11,19 @@ const rp = require('request-promise');
  * @returns {*}: A promise, array composed of JSON objects.
  */
 function getImages(offset, query) {
-    return rp({
-        method: 'GET',
-        url: 'https://www.googleapis.com/customsearch/v1',
+    return request.getAsync({
+        url: config.googleAPI.url,
         qs: {
-            key: 'AIzaSyAXYWJXEJYRhqObTXJHvNEhelrhwOWvWUk',
-            cx: '016520754752152577647:niuetlfl8ta',
+            key: config.googleAPI.key,
+            cx: config.googleAPI.cx,
             searchType: 'image',
             num: offset,
             q: query
         }
-    }).then((response)=> {
-        let images = JSON.parse(response).items;
+    }).spread((response,body)=> {
+        if (response.statusCode != 200)
+            throw new Error(`Failed to get queries from Appcloud Infra API, status code: ${response.statusCode}`);
+        let images = JSON.parse(body).items;
         let arr = [];
         _.forEach(images, (value)=> {
             arr.push({
@@ -31,7 +34,7 @@ function getImages(offset, query) {
             });
         });
         return arr;
-    })
+    }).catch(console.error);
 }
 module.exports ={
     getImages : getImages

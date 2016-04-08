@@ -6,6 +6,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const config = require('./config');
 
 
 
@@ -35,8 +36,8 @@ app.use('/',routes);
 
 
 
-app.listen(3000,() => {
-  console.log("testing to see if anything changges....")
+app.listen(config.webserver.port,() => {
+  console.log(`listening on port ${config.webserver.port}`)
 });
 
 module.exports = app;
