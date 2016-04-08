@@ -22,7 +22,7 @@ function getImages(offset, query) {
         }
     }).spread((response,body)=> {
         if (response.statusCode != 200)
-            throw new Error(`Failed to get queries from Appcloud Infra API, status code: ${response.statusCode}`);
+            throw new Error(`Failed to get Images from Google API: ${response.statusCode}`);
         let images = JSON.parse(body).items;
         let arr = [];
         _.forEach(images, (value)=> {

@@ -1,10 +1,10 @@
 'use strict';
-const express = require('express');
-const validator = require('validator');
-const util = require('util');
-const Postgre = require('../utils/postgre');
-const Randomnum = require('../utils/randomNum');
-const router = express.Router();
+const express = require('express')
+    , validator = require('validator')
+    , util = require('util')
+    , Postgre = require('../utils/postgre')
+    , Randomnum = require('../utils/randomNum')
+    , router = express.Router();
 
 
 function urlShortner(request, response) {
@@ -15,7 +15,7 @@ function urlShortner(request, response) {
         let url = request.url.slice(17);
         if (!validator.isURL(url)) return response.json({"Error": "Invalid URL"});
         let num = Randomnum.generateRandom();
-        let shorturl = 'https://' +request.headers.host + '/api/urlShortner/' + num;
+        let shorturl = 'https://' + request.headers.host + '/api/urlShortner/' + num;
         Postgre.queryPostgre(`insert into shorturl.url VALUES(${num},'${url}')`).then(()=> {
             return response.json({
                 "original_url": url,
@@ -26,7 +26,7 @@ function urlShortner(request, response) {
 }
 
 /***
- * 
+ *
  * @param number: an Integer, for finding the correct target url.
  * @param response: response with the new destination.
  */
