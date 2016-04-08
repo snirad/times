@@ -1,8 +1,8 @@
 'use strict';
 
-const express = require('express');
-const moment = require('moment');
-const router = express.Router();
+const express = require('express')
+    , moment = require('moment')
+    , router = express.Router();
 
 
 function returntimestamp(request, response) {
