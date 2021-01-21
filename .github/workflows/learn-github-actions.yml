@@ -1,11 +1,18 @@
 name: learn-github-actions
-on: [push]
+on: [ push ]
+
 jobs:
-  check-bats-version:
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
-      - uses: actions/first-interaction@v1.1.0
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      - name: Build DockerContainer
+        shell: bash
+        run: |
+            docker build --build-arg NPM_TOKEN=${{ secrets.NPM_ARTIFACTORY_TOKEN }} -t my_test .
+      - name: Run Unit Tests
+        shell: bash
+        run: |
+            docker run my_test npm run test
