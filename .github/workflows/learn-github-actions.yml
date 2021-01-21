@@ -2,8 +2,8 @@ name: learn-github-actions
 on: [ push ]
 
 jobs:
-  run-linters:
-    name: Run linters
+  run-build:
+    name: run build
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
