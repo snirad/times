@@ -13,4 +13,4 @@ COPY package.json yarn.* npm-shrinkwrap*.json package-lock*.json ./
 RUN npm ci
 COPY . /app
 EXPOSE 3000
-ENTRYPOINT ["/bin/sh", "start.sh"]
+CMD ["/bin/sh", "start.sh"]
