@@ -11,7 +11,7 @@ jobs:
       - name: Build DockerContainer
         shell: bash
         run: |
-            docker build --build-arg NPM_TOKEN=${{ secrets.NPM_ARTIFACTORY_TOKEN }} -t my_test .
+            docker build -t my_test .
       - name: Run Unit Tests
         shell: bash
         run: |
