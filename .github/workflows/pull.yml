@@ -1,0 +1,19 @@
+name: pull
+on:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - synchronize
+      - reopened
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v1
+      - name: Branch name
+        run: echo running on branch GITHUB REF  ${GITHUB_REF} ${GITHUB_HEAD_REF}
